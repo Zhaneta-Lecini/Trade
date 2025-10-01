@@ -1,75 +1,112 @@
 ﻿using App;
 
-// Användare
-// Resurser, Dolda baserade på roll
-// Logga in
-// Logga ut
-// Skapa en användare om man är en Admin
-// Se listan
-// 
-// a user-browse, accept, deny request.
-
-/*The following features need to be implemented:
-
-A user needs to be able to register an account
-A user needs to be able to log out.
-A user needs to be able to log in.
-A user needs to be able to upload information about the item they wish to trade.
-A user needs to be able to browse a list of other users items.
-A user needs to be able to request a trade for other users items.
-A user needs to be able to browse trade requests.
-A user needs to be able to accept a trade request.
-A user needs to be able to deny a trade request.
-A user needs to be able to browse completed requests.
-*/
-List <User> users = new List<User>();
-List <Item> items = new List<Item>();
-
 //för att läga till i listan.//Skapar ny (objekt) User som heter "MyUser" och har string värden "Anna"..
 
+List<User> users = new List<User>();
 User MyUser = new User("Anna", "J456n");//"Skapa ny användare"
 User MyUser2 = new User("Inna", "123456");
-Item MyItem = new Item("skor", "blu");
-Item MyItem2 = new Item2("mobil", "iphone");
+users.Add(MyUser);
+users.Add(MyUser2);
+        
 
-//Skapar ny (objekt) User som heter "MyUser" och har string värden "Anna"..
-
-items.Add(new Item(MyItem.Name, MyItem.Description)); //items.Add(new Item("name/skor", "black/descrip"));
-items.Add(new Item(MyItem2.Name, MyItem2.Description));
-users.Add(new User(MyUser.UserName, MyUser.Password));
-user.Add(new User(MyUser2.Username, MyUser2.Pasword));
-
-Console.WriteLine("Ange användarnamn: ");//we will declare a string variable named användnameA
-string användname = Console.ReadLine();
-
-Console.WriteLine("Ange lösenord: ");// we will desplay text+användnameA
-string lösenord = Console.ReadLine();
+      //   Skapar ny (objekt) User som heter "MyUser" och har string värden "Anna"..items.Add(MyItem);
+List <Item> items = new List<Item>();
+items.Add(new Item("Stol", "Black", MyUser)); //items.Add(new Item("name/skor", "black/descrip", owner));
+items.Add(new Item("Bord", "White", MyUser2));
 
 
 
-/*
-Visa "Skapa ny användare"
- 
-Fråga: "Ange användarnamn:"
-Läs in och spara användarnamn
- 
-Fråga: "Ange lösenord:"
-Läs in och spara lösenord
- 
-Skapa ny användare med användarnamn + lösenord
-Lägg till användaren i users-listan
- 
-Visa "Användare skapad!"
-*/
+User? active_user = null;
+
+bool running = true;
+while (running)
+{
+    if (active_user == null) //användaren är inte aktiv
+    {
+        Console.WriteLine("Welcome to trading market");
+        Console.WriteLine("menu");
+        Console.WriteLine("sök");
+        Console.WriteLine("1.skapa konto");
+        Console.WriteLine("2.logga in");
+        Console.WriteLine("Enter 'q' to exit");
+
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "2":
+                Console.Write("Please enter your email: ");
+                string userName = Console.ReadLine();
+                Console.Write("Please enter your password: ");
+                string userPassword = Console.ReadLine();
+
+                users.Add(new User(userName, userPassword));
+
+                foreach (User user in users)
+                {
+                    if (user.UserName == userName && user.Password == userPassword)
+                    {
+                        active_user = user;
+                        Console.WriteLine("Successfull Login!");
+                    }
+                }
+
+                break;
+
+            case "q":
+                running = false;
+                break;
+        }
+
+    }
+
+    if (active_user != null)
+    {
+        Console.WriteLine("Welcome to trading market");
+        Console.WriteLine("menu");
+        Console.WriteLine("sök");
+        Console.WriteLine("1. Add item to market");
+        Console.WriteLine("2. List all items on market");
+    }
+
+    
+
+    // else if (active_user == user) //?????????
+    // {
+    //     Console.WriteLine("Ange username: ");//we will declare a string variable named inputanvändname
+    //     string inputanvändname = Console.ReadLine() ?? ""; //user ska skriva lösenord
+
+    //     Console.WriteLine("Ange password: ");// we will desplay detta
+    //     string inputlösenord = Console.ReadLine() ?? ""; //user ska skriva lösenord
+    // }
+    // foreach (User user in users)
+    // {
+    //     if (user.TryLogin(UserName, Password))
+    //     {
+    //         active_user = user;
+    //         break;
+    //     }
+    // }
+}
+//?? hur ska jag hoppa in att log in eller skapa contot? med swich, case 1,case 2...bla bla
 
 
-//menu
-Console.WriteLine("Kategorier");
-Console.WriteLine("annonser");
-Console.WriteLine("meddelande");
-Console.WriteLine("Bevakningar");
-string h = Console.ReadLine();
-Console.WriteLine("Detta skrev vi in: " + h);
+//Vi ska kolla in om användaren finns:-
+//Vi ska be användaren välja vem som ska trade och vad.   
+
+
+
+
+Console.WriteLine("Thank you come again..");
+        //menu
+    // Console.WriteLine("Kategorier");
+    // Console.WriteLine("annonser");
+    // Console.WriteLine("meddelande");
+    // Console.WriteLine("Bevakningar");
+    // string h = Console.ReadLine();
+    // Console.WriteLine("Detta skrev vi in: " + h);
+    
+
 
 
 
