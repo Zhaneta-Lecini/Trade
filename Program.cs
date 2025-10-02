@@ -61,11 +61,11 @@ while (running)
                 break;
 
             case "3"://sök menun 
-                Console.Write("sök item efter items namn");
-                string search = Console.ReadLine() ?? "";
-                foreach (var item in items)
+                Console.Write("sök item efter items namn"); //vi scriver ut en prompt som säger så;// users kan scriva in texten;ReadLine,eftersom texten ska stanna kvar på samma rad som input
+                string search = Console.ReadLine() ?? "";//Om user trycker Enter utan att skriva något då sätt search till en tom sträng "" istället.
+                foreach (var item in items) //den här loopen går genom alla items i itemslistan
                 {
-                    if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))// här jag kollar items name"stol"/StringComparison.OrdinalIgnoreCase, gör att sökningen ignorerar stora och små bokstäver.
                     {
                         Console.WriteLine(item);
                     } 
