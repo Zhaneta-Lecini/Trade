@@ -55,7 +55,7 @@ while (running)
                 Console.Write("Please enter your password: ");
                 string userPassword = Console.ReadLine();
 
-                
+
 
                 foreach (User user in users) //vi kollar om användaren redan finns
                 {
@@ -72,7 +72,7 @@ while (running)
 
                 break;
 
-                default://om ingen stämer
+            default://om ingen stämer
                 Console.WriteLine("Fel, försök igen");
                 break;
         }
@@ -85,7 +85,11 @@ while (running)
         Console.WriteLine("menu");
         Console.WriteLine("sök");
         Console.WriteLine("1. Add item to market");
-        Console.WriteLine("2. List all items on market");
+        Console.WriteLine("2. List all items on market"); //?????? Menun körs infinit times...Hur löser jag den????
+    }
+    else ();
+    {
+        
     }
 
     
