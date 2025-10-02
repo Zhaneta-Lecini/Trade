@@ -44,9 +44,9 @@ while (running)
                 }
                 else
                 {
-                    foreach (Item item in items) 
+                    foreach (Item item in items)
                     {
-                        Console.WriteLine(item); //visar alla items som fins i listan
+                        Console.WriteLine(item);
                     }
                 }
 
@@ -60,18 +60,18 @@ while (running)
                 }
                 break;
 
-            case "3"://sök menun 
+            case "3"://sök  
                 Console.Write("sök item efter items namn"); //vi scriver ut en prompt som säger så;// users kan scriva in texten;ReadLine,eftersom texten ska stanna kvar på samma rad som input
                 string search = Console.ReadLine() ?? "";//Om user trycker Enter utan att skriva något då sätt search till en tom sträng "" istället.
                 foreach (var item in items) //den här loopen går genom alla items i itemslistan
                 {
                     if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))// här jag kollar items name"stol"/StringComparison.OrdinalIgnoreCase, gör att sökningen ignorerar stora och små bokstäver.
                     {
-                        Console.WriteLine(item);
-                    } 
-                 }
+                        Console.WriteLine(item);//Om if är sant, alltså om itemets namn innehåller söksträngen, skrivs itemet ut.
+                    }
+                }
 
-                break;
+                break;// annash avsluta detta case och gå tillbaka till menu
 
             case "4"://skapa ny konto
                 Console.Write("Ange username: ");
@@ -122,32 +122,95 @@ while (running)
         Console.WriteLine("2.menu");
         Console.WriteLine("3.sök");
         Console.WriteLine("4. Add item to market");
-        Console.WriteLine("5. List all items on market"); 
+        Console.WriteLine("5. List all items on market");
         Console.WriteLine("6.logga ut");//?????? Menun körs infinit times...Hur löser jag den????
+
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+
+            case "1": //vissa market / detta är samma cod som körs om användaren är inte loggat in, såklart
+                Console.WriteLine("Treadings market");
+                if (items.Count == 0)
+                {
+                    Console.WriteLine("Just nu finns inga items på marknaden");
+                }
+                else
+                {
+                    foreach (Item item in items)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+
+                break;
+
+            case "2"://visa items /detta är samma cod som körs om användaren är inte loggat in, såklart
+                Console.WriteLine("Treadings market");
+                if (items.Count == 0)
+                {
+                    Console.WriteLine("Just nu finns inga items på marknaden");
+                }
+                else
+                {
+                    foreach (Item item in items)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+
+                break;
+
+
+            case "3"://sök /detta är samma cod som körs om användaren är inte loggat in, såklart
+                Console.Write("sök item efter items namn");
+                string search = Console.ReadLine() ?? "";
+                foreach (var item in items)
+                {
+                    if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+
+                break;
+
+            case "4": 
+                Console.WriteLine("Ange item namn");//user ska se texten och skriva in namnet på en ny item;
+                string name = Console.ReadLine() ?? ""; //här tar vi in den som user har skrivit;
+
+                Console.WriteLine("Ange item description");//user ska ge description på en ny item;
+                string description = Console.ReadLine() ?? "";// spara den items beskrivningen på variabeln;
+             // för att user lägga till en ny item och den sparas i listan
+                items.Add(new Item(name, description, active_user)) // Add ny item fron den inloggad user
+                Console.WriteLine("Item tillägt :) !");
+
+                break;
+
+            case "5":
+
+                Console.WriteLine("Alla Items som finns på marknanden");
+
+                foreach (var item in items)
+                {
+                    Console.WriteLine(item);
+                }
+                break;
+
+            case "6":
+                active_user = null;
+                Console.WriteLine("Du är nu loggat ut");
+                break;
+
+            default://om ingen stämer
+                Console.WriteLine("Fel, försök igen");
+                break;
+        }
     }
-    
-    
 
-    
-
-    // else if (active_user == user) //?????????
-    // {
-    //     Console.WriteLine("Ange username: ");//we will declare a string variable named inputanvändname
-    //     string inputanvändname = Console.ReadLine() ?? ""; //user ska skriva lösenord
-
-    //     Console.WriteLine("Ange password: ");// we will desplay detta
-    //     string inputlösenord = Console.ReadLine() ?? ""; //user ska skriva lösenord
-    // }
-    // foreach (User user in users)
-    // {
-    //     if (user.TryLogin(UserName, Password))
-    //     {
-    //         active_user = user;
-    //         break;
-    //     }
-    // }
 }
-//?? hur ska jag hoppa in att log in eller skapa contot? med swich, case 1,case 2...bla bla
+Console.WriteLine("Program avslutas");
 
 
 //Vi ska kolla in om användaren finns:-
