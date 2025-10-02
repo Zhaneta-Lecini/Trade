@@ -37,16 +37,16 @@ while (running)
         switch (input) //jag vill att användaren ska hopa i menun och hanterar alla case 
         {
             case "1": //Treadings market öpnas
-                Console.WriteLine("Treadings market");//
-                if (items.Count == 0)
+                Console.WriteLine("Treadings market");
+                if (items.Count == 0) //if finns inga items
                 {
                     Console.WriteLine("Just nu finns inga items på marknaden");
                 }
                 else
                 {
-                    foreach (Item item in items)
+                    foreach (Item item in items) 
                     {
-                        Console.WriteLine(item);
+                        Console.WriteLine(item); //visar alla items som fins i listan
                     }
                 }
 
