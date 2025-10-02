@@ -3,7 +3,7 @@ using System.Buffers;
 namespace App;
 
 class Item 
-//vi bygger en konstrukt;namespace App;
+//vi bygger en konstrukt;
 {
     public string Name;
     public string Description;

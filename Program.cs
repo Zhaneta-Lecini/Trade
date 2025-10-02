@@ -36,6 +36,43 @@ while (running)
 
         switch (input) //jag vill att användaren ska hopa i menun och hanterar alla case 
         {
+            case "1": //Treadings market öpnas
+                Console.WriteLine("Treadings market");//
+                if (items.Count == 0)
+                {
+                    Console.WriteLine("Just nu finns inga items på marknaden");
+                }
+                else
+                {
+                    foreach (Item item in items)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+
+                break;
+
+            case "2":
+                Console.WriteLine("Vissa Items"); //Menu
+                foreach (var item in items)
+                {
+                    Console.WriteLine(item);
+                }
+                break;
+
+            case "3"://sök menun 
+                Console.Write("sök item efter items namn");
+                string search = Console.ReadLine() ?? "";
+                foreach (var item in items)
+                {
+                    if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine(item);
+                    } 
+                 }
+
+                break;
+
             case "4"://skapa ny konto
                 Console.Write("Ange username: ");
                 string newEmail = Console.ReadLine();
@@ -79,18 +116,17 @@ while (running)
 
     }
 
-    if (active_user != null) //if användare är inte null:är inloggat, visas en ny meny för inloggade användare.
+    else if (active_user != null) //if användare är inte null:är inloggat, visas en ny meny för inloggade användare.
     {
-        Console.WriteLine("Welcome to trading market");
-        Console.WriteLine("menu");
-        Console.WriteLine("sök");
-        Console.WriteLine("1. Add item to market");
-        Console.WriteLine("2. List all items on market"); //?????? Menun körs infinit times...Hur löser jag den????
+        Console.WriteLine("1.Welcome to trading market");
+        Console.WriteLine("2.menu");
+        Console.WriteLine("3.sök");
+        Console.WriteLine("4. Add item to market");
+        Console.WriteLine("5. List all items on market"); 
+        Console.WriteLine("6.logga ut");//?????? Menun körs infinit times...Hur löser jag den????
     }
-    else ();
-    {
-        
-    }
+    
+    
 
     
 
