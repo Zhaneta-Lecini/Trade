@@ -16,36 +16,16 @@ List <Item> items = new List<Item>();
 items.Add(new Item("Stol", "Black", MyUser)); //items.Add(new Item("name/skor", "black/descrip", owner));
 items.Add(new Item("Bord", "White", MyUser2));
 
-Trade market = new Trade(items); //här skapade jag Trade-objekt
+Trade market = new Trade(items); //här skapade jag Trade-objekt som ska hantera kÖp/sälj
 
 User? active_user = null; 
 bool running = true; 
-
-void SearchItems() //Funktion för SÖK
-{
-    Console.Write("Sök item: ");//vi scriver ut en prompt som säger så;// users kan scriva in texten;ReadLine,eftersom texten ska stanna kvar på samma rad som input
-    string search = Console.ReadLine() ?? ""; //Om user trycker Enter utan att skriva något då sätt search till en tom sträng "" istället.
-    foreach (var item in items) //den här loopen går genom alla items i itemslistan
-    bool found = false;
-
-    foreach (var item in items)
-    {
-        if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase)) // här jag kollar items name"stol"/StringComparison.OrdinalIgnoreCase, gör att sökningen ignorerar stora och små bokstäver.
-        {
-            Console.WriteLine(item);//Om if är sant, alltså om itemets namn innehåller söksträngen, skrivs itemet ut.
-            found = true;
-        }
-    }
-
-    if (!found) Console.WriteLine("Inga items matchade. ";)
-}
-
 
 while (running) //Så länge running är true kommer while-loopen att fortsätta köra programmet.
 {
     if (active_user == null)//användaren är inte aktiv, då visas menun med 6 val
     {
-        Console.WriteLine("\n--- Huvudmenu ---");
+        Console.WriteLine("1. WELCOME");
         Console.WriteLine("1. Visa trading market");
         Console.WriteLine("2. Visa alla items");
         Console.WriteLine("3. Sök ");
@@ -54,18 +34,29 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
         Console.WriteLine("6. Avsluta (q)");
 
         string input = Console.ReadLine() ?? "";
+
         switch (input) //jag vill att användaren ska hopa i menun och hanterar alla case 
         {
-            case "1": //Treadings market öpnas
-            case "2":
+            case "1": //Treadings market öpnas  om användaren skriver in "1" i menyn=kör följande kod.
+            case "2": //Treadings market öpnas  om användaren skriver in "2" i menyn=kör följande kod.
                 market.ShowMarket();
                 break;
 
-            case "3"://sök  
-                SearchItems();
+            case "3"://sök, //Treadings market öpnas//om användaren skriver in "3" i menyn=kör följande kod.
+                    Console.Write("Sök item: ");//vi scriver ut en prompt som säger så;// users kan scriva in texten;ReadLine,eftersom texten ska stanna kvar på samma rad som input
+                string search = Console.ReadLine() ?? ""; //Om user trycker Enter utan att skriva något då sätt search till en tom sträng "" istället.
+    foreach (var item in items) //den här loopen går genom alla items i itemslistan
+    {
+        if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase)) // här jag kollar items name"stol"/StringComparison.OrdinalIgnoreCase, gör att sökningen ignorerar stora och små bokstäver.
+        {
+            Console.WriteLine(item);//Om if är sant, alltså om itemets namn innehåller söksträngen, skrivs itemet ut.
+           
+        }
+    }
                 break;// annash avsluta detta case och gå tillbaka till menu
 
-            case "4"://skapa ny konto
+
+            case "4"://skapa ny konto//om användaren skriver in "4" i menyn=kör följande kod.
                 Console.Write("Ange username: ");
                 string newEmail = Console.ReadLine() ?? "";
 
@@ -77,7 +68,7 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
                 break;
 
 
-            case "5": //logga in
+            case "5": //logga in //om användaren skriver in "5" i menyn=kör följande kod.
                 Console.Write("Please enter your email: ");
                 string userName = Console.ReadLine() ?? "";
 
@@ -85,25 +76,23 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
                 string userPassword = Console.ReadLine() ?? "";
 
 
-                bool foundUser = false;
-
                 foreach (User user in users) //vi kollar om användaren redan finns
                 {
                     if (user.UserName == userName && user.Password == userPassword)
                     {
                         active_user = user;
                         Console.WriteLine("Successfull Login!"); //if användnamn och pass matchar med de som vi har i User class då han har access 
-                        foundUser = true;
+                        
                         break;
                     }
                 }
 
-                if (!foundUser) //if detta matchar inte:
+                if (active_user == null) //if detta matchar inte:
                     Console.WriteLine("Fel email eller pasword. ");//if användnamn och pass matchar med de som vi har i User class då han har access annash visav menun igen, med 6 val
-                foundUser = true;
+            
                 break;
 
-            case "6":
+            case "6": //om användaren skriver in "6" i menyn=kör följande kod.
                 running = false;  // avslutas.
 
                 break;
@@ -113,9 +102,9 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
                 break;
         }
     }
-    else
+    else  //Menu för de Inlåggad användare :)
     {
-        Console.WriteLine("\n--- Huvudmenu ---");
+        Console.WriteLine("--- Huvudmenu ---");
         Console.WriteLine("1. Visa trading market");
         Console.WriteLine("2. Visa alla items");
         Console.WriteLine("3. Sök ");
@@ -140,12 +129,12 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
         switch (input)
         {
-            case "1": //Treadings market öpnas
-            case "2":
+            case "1": //Treadings market öpnas, om användaren skriver in "1" i menyn = kör följande kod.
+            case "2": //om användaren skriver in "2" i menyn = kör följande kod.
                 market.ShowMarket();
                 break;
 
-            case "3"://sök  
+            case "3"://sök , om användaren skriver in "3" i menyn = kör följande kod.
                 SearchItems();
                 break;// annash avsluta detta case och gå tillbaka till menu
 
@@ -165,17 +154,20 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
                 break;
 
-            case "5":
-
-                Console.WriteLine("Alla Items som finns på marknanden"); //usaren se en rubbrik
-
-                foreach (var item in items) //för att gå igenom hella listan items
+            case "5": //om användaren skriver in "5" i menyn = kör följande kod.
+                if (active_user != null)
                 {
-                    Console.WriteLine(item);
+                    market.BuyItem(active_user);//BuyItem = är en metod i Trade som hanterar logiken för att köpa ett item från marknaden.
+                    //den inloggade användaren försöker köpa ett item.
                 }
-                break;
+                else
+                {
+                    Console.WriteLine("Du måste vara inloggad!");
+                }
+                
+                break; //Avslutar detta case och hoppar ut ur switch-satsen.
 
-            case "6":
+            case "6": //om användaren skriver in "6" i menyn = kör följande kod.
                 active_user = null;
                 Console.WriteLine("Du är nu loggat ut");
                 break;
