@@ -1,67 +1,75 @@
+using System.Xml;
+
 namespace App;
+ //jag ville att göra en Itemstransert mellan användare via mail
 
 
-//vi bygger en konstrukt;namespace App;
-public class Trade
+public class Trade // Ska hantera marknadsfunktioner som att visa items, köpa items och flytta items mellan användare
+{
+    private List<Item> _items; // Lista med alla items på marknaden
+    public Trade(List<Item> items)
     {
-        private List<Item> _items;
-
-        public Trade(List<Item> items)
+        _items = items;
+    }
+    public void ShowMarket()
+    {
+        if (_items.Count == 0) //för att kolla om listen är tom;
         {
-            _items = items;
+            Console.WriteLine("Marknaden är tom.");// när finns inga items att visa;
         }
-
-        // Visa alla items med index
-        public void ShowMarket()
+        else
         {
-            if (_items.Count == 0)
+            Console.WriteLine("Items på marknaden:");
+            for (int i = 0; i < _items.Count; i++)//loppar igenom alla items tills från den första item till alla items count , hoppar +1;
             {
-                Console.WriteLine("Marknaden är tom.");
-                return;
-            }
-
-            for (int i = 0; i < _items.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {_items[i]}");
-            }
-        }
-
-        // Låta en användare köpa ett item
-        public void BuyItem(User buyer)
-        {
-            if (_items.Count == 0)
-            {
-                Console.WriteLine("Inga items finns på marknaden.");
-                return;
-            }
-
-            ShowMarket();
-            Console.Write("Välj nummer på item att köpa (eller Enter för att avbryta): ");
-            string input = Console.ReadLine() ?? "";
-
-            if (int.TryParse(input, out int index))
-            {
-                if (index >= 1 && index <= _items.Count)
-                {
-                    Item selected = _items[index - 1];
-                    if (selected.Owner == buyer)
-                    {
-                        Console.WriteLine("Du kan inte köpa ditt eget item!");
-                    }
-                    else
-                    {
-                        selected.Owner = buyer;
-                        Console.WriteLine($"Du har köpt '{selected.Name}'. Ägare är nu {buyer.UserName}.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Felaktigt val.");
-                }
-            }
-            else if (!string.IsNullOrEmpty(input))
-            {
-                Console.WriteLine("Felaktig inmatning.");
+                Console.WriteLine($"{i + 1}. {_items[i]}");//skriver ut items via ToString;
             }
         }
     }
+
+    {
+        Console.WriteLine("Vilket item vill du sälja?");
+        string itemName = Console.ReadLine() ?? "";
+
+        // För att hitta item
+        Item? itemToMove = null;
+        for (int i = 0; i < _items.Count; i++)//använd foor loop index (for a Finite amount of time)to keep track of iteneration.
+        {
+            if (_items[i].Name.Equals(itemName, StringComparison.OrdinalIgnoreCase))
+            {
+                itemToMove = _items[i];
+                break;
+            }
+        }
+
+        if (itemToMove == null)
+        {
+            Console.WriteLine("Itemet finns inte.");
+            return;
+        }
+
+        // Ny ägare
+        Console.WriteLine("Ange email på ny ägare:");
+        string newEmail = Console.ReadLine() ?? "";
+
+        User? newOwner = null;
+        foreach (var user in Program.users) //måste ha users-listan åtkomlig här
+        {
+            if (user.UserName.Equals(newEmail, StringComparison.OrdinalIgnoreCase))
+            {
+                newOwner = user;
+                break;
+            }
+        }
+
+        if (newOwner == null)
+        {
+            Console.WriteLine("Användaren finns inte.");
+            return;
+        }
+
+        // För att flytta item
+        itemToMove.ChangeOwner(newOwner);
+        Console.WriteLine($"Item '{itemToMove.Name}' är nu ägt av {newOwner.UserName}!");
+    }
+}

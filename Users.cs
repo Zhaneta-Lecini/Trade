@@ -1,6 +1,6 @@
 namespace App;
 
-class User
+public class User
 //vi bygger en konstrukt;
 {
     public string UserName;
