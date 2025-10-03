@@ -115,10 +115,7 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
     }
 }
 
-
-    }
-
-    else if (active_user != null) //if användare är inte null:är inloggat, visas en ny meny för inloggade användare.
+    else (active_user != null) //if användare är inte null:är inloggat, visas en ny meny för inloggade användare.
     {
         Console.WriteLine("1.Welcome to trading market");
         Console.WriteLine("2.menu");
