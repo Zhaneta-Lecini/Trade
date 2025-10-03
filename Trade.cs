@@ -72,7 +72,7 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
             }
         }
 
-        if (newOwner == null) //if hitta e ny ägare, anas return;
+        if (newOwner == null) //if hitta e ny ägare, annars return;
         {
             Console.WriteLine("Användaren finns inte.");
             return;
@@ -90,4 +90,4 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
     //  Kontrollera att input är ett giltigt nummer
     // Se till att användaren inte köper sitt eget item !!! FIXA
     // Bytt ägare med ChangeOwner
-    //  Bekräfta köpet
+    //  Bekräfta köpet........

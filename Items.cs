@@ -2,7 +2,7 @@ using System.Buffers;
 
 namespace App;
 
-class Item 
+public class Item
 //vi bygger en konstrukt;
 {
     public string Name;
@@ -14,6 +14,15 @@ class Item
         Name = name;
         Description = description;
         Owner = owner;
+    }
+
+    public void ChangeOwner(User newOwner)
+    {
+        Owner = newOwner;
+    }
+    public override string ToString()
+    {
+        return ${Name} - {Description} (Ägare: {Owner.UserName});
     }
 
 }
