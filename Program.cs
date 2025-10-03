@@ -48,7 +48,7 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
         Console.WriteLine("\n--- Huvudmenu ---");
         Console.WriteLine("1. Visa trading market");
         Console.WriteLine("2. Visa alla items");
-        Console.WriteLine("3. Sök items");
+        Console.WriteLine("3. Sök ");
         Console.WriteLine("4. Skapa konto");
         Console.WriteLine("5. Logga in");
         Console.WriteLine("6. Avsluta (q)");
@@ -83,10 +83,10 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
                 Console.Write("Please enter your password: ");
                 string userPassword = Console.ReadLine() ?? "";
-                
+
 
                 bool foundUser = false;
- 
+
                 foreach (User user in users) //vi kollar om användaren redan finns
                 {
                     if (user.UserName == userName && user.Password == userPassword)
@@ -100,7 +100,7 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
                 if (!foundUser) //if detta matchar inte:
                     Console.WriteLine("Fel email eller pasword. ");//if användnamn och pass matchar med de som vi har i User class då han har access annash visav menun igen, med 6 val
-                    foundUser = true;
+                foundUser = true;
                 break;
 
             case "6":
@@ -112,6 +112,18 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
                 Console.WriteLine("Fel, försök igen");
                 break;
         }
+    }
+    else
+    {
+        Console.WriteLine("\n--- Huvudmenu ---");
+        Console.WriteLine("1. Visa trading market");
+        Console.WriteLine("2. Visa alla items");
+        Console.WriteLine("3. Sök ");
+        Console.WriteLine("4. Skapa konto");
+        Console.WriteLine("5. Logga in");
+
+        string input = Console.ReadLine() ?? ""; 
+        switch (input)
     }
 }
 
@@ -128,52 +140,16 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
         switch (input)
         {
-
-            case "1": //vissa market / detta är samma cod som körs om användaren är inte loggat in, såklart
-                Console.WriteLine("Treadings market");
-                if (items.Count == 0)
-                {
-                    Console.WriteLine("Just nu finns inga items på marknaden");
-                }
-                else
-                {
-                    foreach (Item item in items)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
-
+            case "1": //Treadings market öpnas
+            case "2":
+                market.ShowMarket();
                 break;
 
-            case "2"://visa items /detta är samma cod som körs om användaren är inte loggat in, såklart
-                Console.WriteLine("Treadings market");
-                if (items.Count == 0)
-                {
-                    Console.WriteLine("Just nu finns inga items på marknaden");
-                }
-                else
-                {
-                    foreach (Item item in items)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
-
-                break;
+            case "3"://sök  
+                SearchItems();
+                break;// annash avsluta detta case och gå tillbaka till menu
 
 
-            case "3"://sök /detta är samma cod som körs om användaren är inte loggat in, såklart
-                Console.Write("sök item efter items namn");
-                string search = Console.ReadLine() ?? "";
-                foreach (var item in items)
-                {
-                    if (item.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
-
-                break;
             //Inloggat användare lägga upp nya items, då alla kan se Annas skor t.ex på marknaden
             case "4": //När en användare är inloggad kan skapa nya items som kopplas till sitt konto
                 Console.WriteLine("Ange item namn");//user ska se texten och skriva in namnet på en ny item;
