@@ -21,7 +21,10 @@ public class Item //Rapresenterar ett item (objekt), kopplat till en ägare(User
     {
         Owner = newOwner;
     }
-
+    public override string ToString() // To Sting metod för att visa items namn, description och owner när viskriver
+    {
+        return ${Name} - {Description} (Ägare: {Owner.UserName});
+    }
 
 }
 
