@@ -198,7 +198,7 @@ A user needs to be able to request a trade for other users items-------OK
 A user needs to be able to browse trade requests.
 A user needs to be able to accept a trade request.
 A user needs to be able to deny a trade request.
-A user needs to be able to browse completed requests.
+A user needs to be able to browse completed requests..
 */
  
 

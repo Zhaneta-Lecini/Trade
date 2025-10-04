@@ -9,6 +9,6 @@ Detta program är ett enkelt trading-system där användare kan registrera sig, 
 All kod är skriven med samma principer som vi har lärt oss i skolan. Till exempel:  
 * Huvudprogrammet använder en **lista** för users och en lista för items, precis som vi gjorde i skolkodexempel. 
 
-* Vi använder **while-loopar** och **switch-case** för menyer.  
+* Jag använder **while-loopar** och **switch-case** för menyer.  
 
 * Metoder i klasserna ("User", "Item" och "Trade".) följer samma logik som vi övade på i skolan....
