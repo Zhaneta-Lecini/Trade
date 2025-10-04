@@ -186,17 +186,22 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 Console.WriteLine("Thank you ");
 Console.WriteLine("See you soon!..");
 
+/*
+The following features need to be implemented:
 
-//Vi ska kolla in om användaren finns:-
-//Vi ska be användaren välja vem som ska trade och vad.  
+A user needs to be able to register an account----- OK
+A user needs to be able to log out----OK
+A user needs to be able to log in-----OK
+A user needs to be able to upload information about the item they wish to trade-----OK
+A user needs to be able to browse a list of other users items------OK
+A user needs to be able to request a trade for other users items-------OK
+A user needs to be able to browse trade requests.
+A user needs to be able to accept a trade request.
+A user needs to be able to deny a trade request.
+A user needs to be able to browse completed requests.
+*/
  
-    //menu
-    // Console.WriteLine("Kategorier");
-    // Console.WriteLine("annonser");
-    // Console.WriteLine("meddelande");
-    // Console.WriteLine("Bevakningar");
-    // string h = Console.ReadLine();
-    // Console.WriteLine("Detta skrev vi in: " + h);
+
     
 
 
