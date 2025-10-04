@@ -123,7 +123,11 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
         switch (input)
         {
             case "1": //Treadings market öpnas, om användaren skriver in "1" i menyn = kör följande kod.
-            case "4":
+
+            case "4": //?????? 
+                      // Jag vill visa alla den inloggadesitems. En lista som måste bli publik 
+                      // Tänken är att ha t.ex Inna har en eget lista med alla egna items som hon ska träda (sälja och shopa) 
+                      // Alla kan se den Innas lista..
 
                 market.ShowMarket();
                 break;
