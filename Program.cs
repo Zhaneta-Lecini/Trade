@@ -14,7 +14,7 @@ users.Add(MyUser2);
 //   Skapar en lista med items (name, description, owner)
 List <Item> items = new List<Item>();
 items.Add(new Item("Stol", "Black", MyUser)); //items.Add(new Item("name/skor", "black/descrip", owner));
-items.Add(new Item("Bord", "White", MyUser2));
+items.Add(new Item("Bord", "White", MyUser2));//Varje item har en Owner, som är ett User-objekt.
 
 Trade market = new Trade(items); //här skapade jag Trade-objekt som ska hantera kÖp/sälj
 
