@@ -21,7 +21,7 @@ public class User // Rapresenterar en användare med email och lösenord //publi
     // ToString-metod för att visa användarens namn när vi skriver ut User-objekt;
     public override string ToString() // när vi skriver ut ett User-objekt i Console.WriteLine(user)-visas user:Alex@hotmail.com.
     {
-        return $"User":  { UserName}  "; 
+        return $"User: {UserName}";
     }   
 }
 
