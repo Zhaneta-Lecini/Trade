@@ -7,14 +7,23 @@ using Microsoft.VisualBasic;
 List<User> users = new List<User>();
 User MyUser = new User("Anna@hotmail.com", "J456n"); //Här skapar jag två användare (MyUser och MyUser2) med e-post och lösenord. 
 User MyUser2 = new User("Inna@hotmail.com", "123456");
+User MyUser3 = new User("zhaneta.lecini@hotmail.com", "12345678");
+User MyUser4 = new User("Eni@hotmail.com", "123456");
+User MyUser5 = new User("Alex@hotmail.com", "123456");
 users.Add(MyUser); //Sedan lägger jag till dem i listan users.
 users.Add(MyUser2);
+users.Add(MyUser3);
+users.Add(MyUser4);
+users.Add(MyUser5);
         
 
 //   Skapar en lista med items (name, description, owner)
 List <Item> items = new List<Item>();
 items.Add(new Item("Stol", "Black", MyUser)); //items.Add(new Item("name/skor", "black/descrip", owner));
 items.Add(new Item("Bord", "White", MyUser2));//Varje item har en Owner, som är ett User-objekt.
+items.Add(new Item("mobil", "White", MyUser3));
+items.Add(new Item("cykel", "Red", MyUser4));
+items.Add(new Item("skor", "White", MyUser5));
 
 Trade market = new Trade(items); //här skapade jag Trade-objekt som ska hantera kÖp/sälj
 
@@ -170,8 +179,8 @@ while (running) //Så länge running är true kommer while-loopen att fortsätta
 
     }
 }
-Console.WriteLine("Program avslutas");
-Console.WriteLine("Thank you come again..");
+Console.WriteLine("Thank you ");
+Console.WriteLine("See you soon!..");
 
 
 //Vi ska kolla in om användaren finns:-

@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using System.Xml;
 
 namespace App;
@@ -7,7 +8,7 @@ namespace App;
 public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa items, köpa items och flytta items mellan användare;
 {
     private List<Item> _items; // Lista med alla items på marknaden;
-   
+
     public Trade(List<Item> items) //public så den ska köras på de andra klasser eller main program;
     {
         _items = items;
@@ -34,8 +35,6 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
     }
     // För att låta en inloggad användare köpa ;
     
-
-
     public void BuyItem(User buyer)//Public - behövs om man ska använda metoden utanför klassen och void - används om metoden inte behöver returnera ngt.
     {
         if (buyer == null) return;// Om ingen användare är inloggad då avsluta;
@@ -69,8 +68,6 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
     }
 
     // Flytta item från en användare till en annan
-
-
     public void TransferItem(List<User> users) // Tar emot listan med alla användare
     {
         Console.WriteLine("Vilken item vill du sälja?");
@@ -78,11 +75,11 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
 
         // För att hitta item
         Item? itemToMove = null;
-        for (int i = 0; i < _items.Count; i++)//använd foor loop index (for a Finite amount of time)to keep track of iteneration.
+        foreach (var item in _items)//använd foor loop index (for a Finite amount of time)to keep track of iteneration.
         { // Början på for-loopens kod block
-            if (_items[i].Name.Equals(itemName, StringComparison.OrdinalIgnoreCase))
+            if (item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase))
             {
-                itemToMove = _items[i];
+                itemToMove = item;
                 break;
             }
         }
@@ -94,11 +91,11 @@ public class Trade // detta klass  Ska hantera marknadsfunktioner som att visa i
         }
 
         // Ny ägare
-        Console.WriteLine("Ange email på nyt ägare:");
+        Console.Write("Ange email på nyt ägare:");
         string newEmail = Console.ReadLine() ?? "";
 
         User? newOwner = null;
-        foreach (var user in Program.users) //måste ha users-listan åtkomlig här
+        foreach (var user in users) //måste ha users-listan åtkomlig här
         {
             if (user.UserName.Equals(newEmail, StringComparison.OrdinalIgnoreCase))
             {

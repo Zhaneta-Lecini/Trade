@@ -9,8 +9,6 @@ public class Item //Rapresenterar ett item (objekt), kopplat till en ägare(User
 //"Used -get-set properties, which is a variable inside a class" 
 // I need (get) to show items in the market and (set) to let users add or change items and to change the owner when someone buys the items;
 {  
-bash: it: command not found
-
     public string Name { get; set; } //name är public som kan läsas och ändras
     public string Description { get; set; } //description är public
     public User Owner { get; set; } //owner = ägaren , private set så man inte ändrar direkt utifrån;
