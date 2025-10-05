@@ -16,16 +16,37 @@ Trade.cs — Handelsmodell och status
 
 
 Krav:
-.NET 9 SDK eller senare
-Windows, Linux eller macOS
-Klona projektet:
-Bygg och kör:
 
-Öppna en terminal t.ex Git bash.
-Kör följande kommandon:
-dotnet build 
+Steg 1: Klona projektet
+
+Öppna din terminal eller kommandoprompt och kör följande kommando för att klona ditt repository till din lokala maskin:
+
+git clone https://github.com/Zhaneta-Lecini/Trade.git
+
+Navigera sedan till projektmappen:
+cd Trade 
+
+Steg 2: Bygg och kör projektet
+
+För att bygga och köra projektet behöver du ha .NET SDK 9 eller senare installerat.
+
+-Återställ eventuella beroenden:
+dotnet restore
+
+-Bygg projektet:
+dotnet build
+
+-Kör applikationen:
 dotnet run
-Användning 
+
+teg 3: Testa funktionaliteten
+
+När applikationen körs bör du se huvudmenyn i terminalen. Här kan du:
+-Skapa nya användare
+-Logga in
+-Lägga till och lista items på marknaden
+-Sök efter items
+-Logga ut
 
 Följ skärmmenyn för att skapa konto, logga in, lägga till objekt logg ut, lägg till nya items eller avsluta
 För att navigera använd menysiffrorna..
