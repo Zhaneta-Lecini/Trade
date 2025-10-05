@@ -1,5 +1,6 @@
 # Trade 
 Trade projekt
+
 Readme text
 
 
@@ -9,47 +10,49 @@ Projektstruktur
 
 Program.cs — Huvudapplikationens logik och menysystem
 
-Klasser/
+<Klasser/
 User.cs — Användarmodell och autentisering
 Item.cs — Objektmodell
 Trade.cs — Handelsmodell och status
 
 
-Krav:
+<Krav:
 
-Steg 1: Klona projektet
+<Steg 1: Klona projektet
+<Öppna din terminal eller kommandoprompt och kör följande <kommando för att klona ditt repository till din lokala maskin:
 
-Öppna din terminal eller kommandoprompt och kör följande kommando för att klona ditt repository till din lokala maskin:
+git clone 
+<https://github.com/Zhaneta-Lecini/Trade.git
 
-git clone https://github.com/Zhaneta-Lecini/Trade.git
+<Navigera sedan till projektmappen:
+<cd Trade 
 
-Navigera sedan till projektmappen:
-cd Trade 
+<Steg 2: Bygg och kör projektet
 
-Steg 2: Bygg och kör projektet
+<För att bygga och köra projektet behöver du ha .NET SDK 9 <eller senare installerat.
 
-För att bygga och köra projektet behöver du ha .NET SDK 9 eller senare installerat.
+<-Återställ eventuella beroenden:
+<dotnet restore
 
--Återställ eventuella beroenden:
-dotnet restore
+<Bygg projektet:
+<dotnet build
 
--Bygg projektet:
-dotnet build
+<Kör applikationen:
+<dotnet run
 
--Kör applikationen:
-dotnet run
+<Steg 3: Testa funktionaliteten
 
-teg 3: Testa funktionaliteten
+<När applikationen körs bör du se huvudmenyn i terminalen. Här kan du:
 
-När applikationen körs bör du se huvudmenyn i terminalen. Här kan du:
--Skapa nya användare
--Logga in
--Lägga till och lista items på marknaden
--Sök efter items
--Logga ut
+<Skapa nya användare
+< Logga in
+< Lägga till och lista items på marknaden
+< Sök efter items
+< Logga ut
 
-Följ skärmmenyn för att skapa konto, logga in, lägga till objekt logg ut, lägg till nya items eller avsluta
-För att navigera använd menysiffrorna..
+<Följ skärmmenyn för att skapa konto, logga in, lägga till 
+< objekt logg ut, lägg till nya items eller avsluta
+< För att navigera använd menysiffrorna..
 
 
 
@@ -58,30 +61,30 @@ För att navigera använd menysiffrorna..
 Ett konsolprogram i C# där användare kan:
 
 --Skapa konto och logga in 
--- Lägga upp sina saker (items)  
---Se vad andra säljer
---Skicka trade request
---Acceptera eller neka trades
---Data sparas automatiskt i JSON-filer (users.json, items.json)
+ <Lägga upp sina saker (items)  
+<Se vad andra säljer
+< Skicka trade request
+< Acceptera eller neka trades
+< Data sparas automatiskt i JSON-filer (users.json, items.json)
 
 Jag använde klasser (User, Item, Trade, TradeRequest) och listor för att hantera logiken.
 
 
 I min kod fungerar redan:
 
-1-skapa konto = (case 4 i main Program.cs);
-2-logga in = (case 5 i main);
-3-logga ut = (case 6 i main);
-4-Visa alla items/ marknanden = (market.ShowMarket());
-5-Sök item = (case 3 när ej inloggat och case 2 när inloggat);
-6-lägga till item = ( case 3 när inloggat); 
-7-köpa item = (market.BuyItem(active_user));
-8-Andra ägare mellan användare(transfer) = (Trade.TransferItem finns ,  men inte andropat i menyn);
+<1>-skapa konto = (case 4 i main Program.cs);
+<2>-logga in = (case 5 i main);
+<3>-logga ut = (case 6 i main);
+<4>-Visa alla items/ marknanden = (market.ShowMarket());
+<5>-Sök item = (case 3 när ej inloggat och case 2 när inloggat);
+<6>-lägga till item = ( case 3 när inloggat); 
+<7>-köpa item = (market.BuyItem(active_user));
+<8>-Andra ägare mellan användare(transfer) = (Trade.<TransferItem <finns ,  men inte andropat i menyn);
 
 Men jag saknar:
 
-9-Trade requests (begäran om att byta/köpa)
-10-Automatisk spara/ladda (autosave + autoload)
+<9>-Trade requests (begäran om att byta/köpa)
+<10>-Automatisk spara/ladda (autosave + autoload)
 
 Trade requests:
 Just nu köper användaren direkt ett item. För att lägga till requests kan vi skapa en lista med TradeRequest. När någon vill köpa ett item, skapas ett request istället. Ägaren kan sedan acceptera eller neka.
