@@ -7,11 +7,11 @@ Detta program är ett enkelt trading-system där användare kan registrera sig, 
 
 
 All kod är skriven med samma principer som vi har lärt oss i skolan. Till exempel:  
-* Huvudprogrammet använder en listaför users och en lista för items, precis som vi gjorde i skolkodexempel. 
+-- Huvudprogrammet använder en listaför users och en lista för items, precis som vi gjorde i skolkodexempel. 
 
-* Jag använder while-loopar och witch-case för menyer.  
+-- Jag använder while-loopar och witch-case för menyer.  
 
-* Metoder i klasserna ("User", "Item" och "Trade".) följer samma logik som vi övade på i skolan...
+-- Metoder i klasserna ("User", "Item" och "Trade".) följer samma logik som vi övade på i skolan...
 
 
 
@@ -50,7 +50,7 @@ Persistent storage:
 Vi kan använda JSON för att spara items och users till filer. När programmet startar, läses filerna och allt är kvar precis som innan programmet stängdes.
 
 Flytta item via mail:
-Den logiken finns redan i TransferItem, men vi behöver lägga till ett menyval i program.cs så användare kan använda den.
+Den logiken finns redan i TransferItem, men jag behöver lägga till ett menyval i program.cs så användare kan använda den.
 
 
 Projektstruktur

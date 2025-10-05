@@ -199,9 +199,12 @@ A user needs to be able to browse trade requests.
 A user needs to be able to accept a trade request.
 A user needs to be able to deny a trade request.
 A user needs to be able to browse completed requests..
-*/
- 
 
+  ----J.son ,
+skapa en JSON file (cd Trade/cd new console -o demo.files/cd data.json)
+- skriver inte något i data.json själv. Den filen kommer automatiskt skapas av programmet när det körs.
+I början av main-logiken, innan fyller vi listan users och items manuellt, anropa LoadData för att försöka läsa in tidigare sparad data.
+I slutet av programmet, innan programmet avslutas, anropa SaveData för att spara listorna till data.json.
     
 
 
@@ -209,3 +212,4 @@ A user needs to be able to browse completed requests..
 
 
 
+*/
