@@ -5,13 +5,30 @@ Readme text
 
 Detta program är ett enkelt trading-system där användare kan registrera sig, logga in, lägga upp items på marknaden, se andras items och flytta items mellan användare. Programmet använder objektorientering med tre huvudklasser: "User", "Item" och "Trade".
 
+Projektstruktur
 
-All kod är skriven med samma principer som vi har lärt oss i skolan. Till exempel:  
--- Huvudprogrammet använder en listaför users och en lista för items, precis som vi gjorde i skolkodexempel. 
+Program.cs — Huvudapplikationens logik och menysystem
 
--- Jag använder while-loopar och witch-case för menyer.  
+Klasser/
+User.cs — Användarmodell och autentisering
+Item.cs — Objektmodell
+Trade.cs — Handelsmodell och status
 
--- Metoder i klasserna ("User", "Item" och "Trade".) följer samma logik som vi övade på i skolan...
+
+Krav:
+.NET 9 SDK eller senare
+Windows, Linux eller macOS
+Klona projektet:
+Bygg och kör:
+
+Öppna en terminal t.ex Git bash.
+Kör följande kommandon:
+dotnet build 
+dotnet run
+Användning 
+
+Följ skärmmenyn för att skapa konto, logga in, lägga till objekt logg ut, lägg till nya items eller avsluta
+För att navigera använd menysiffrorna..
 
 
 
@@ -30,6 +47,7 @@ Jag använde klasser (User, Item, Trade, TradeRequest) och listor för att hante
 
 
 I min kod fungerar redan:
+
 1-skapa konto = (case 4 i main Program.cs);
 2-logga in = (case 5 i main);
 3-logga ut = (case 6 i main);
@@ -40,6 +58,7 @@ I min kod fungerar redan:
 8-Andra ägare mellan användare(transfer) = (Trade.TransferItem finns ,  men inte andropat i menyn);
 
 Men jag saknar:
+
 9-Trade requests (begäran om att byta/köpa)
 10-Automatisk spara/ladda (autosave + autoload)
 
@@ -53,14 +72,5 @@ Flytta item via mail:
 Den logiken finns redan i TransferItem, men jag behöver lägga till ett menyval i program.cs så användare kan använda den.
 
 
-Projektstruktur
-
-Program.cs — Huvudapplikationens logik och menysystem
-
-Klasser/
-User.cs — Användarmodell och autentisering
-Item.cs — Objektmodell
-Trade.cs — Handelsmodell och status
-
-FileHandler.cs — Hanterar all JSON-persistens (datainläsning och sparning). ????????
-trading_system.csproj — Projektfil. ????????
+FileHandler.cs — Hanterar all JSON-persistens (datainläsning och sparning). 
+trading_system.csproj — Projektfil. 
