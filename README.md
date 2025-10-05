@@ -19,8 +19,8 @@ All kod är skriven med samma principer som vi har lärt oss i skolan. Till exem
 
 Ett konsolprogram i C# där användare kan:
 
---Skapa konto och logga in
--- Lägga upp sina saker (items)
+--Skapa konto och logga in 
+-- Lägga upp sina saker (items)  
 --Se vad andra säljer
 --Skicka trade request
 --Acceptera eller neka trades
@@ -30,12 +30,14 @@ Jag använde klasser (User, Item, Trade, TradeRequest) och listor för att hante
 
 
 I min kod fungerar redan:
--skapa konto 
--logga in
--logga ut
--lägga till item
--köpa item
--visa items
+1-skapa konto = (case 4 i main Program.cs);
+2-logga in = (case 5 i main);
+3-logga ut = (case 6 i main);
+4-Visa alla items/ marknanden = (market.ShowMarket());
+5-Sök item = (case 3 när ej inloggat och case 2 när inloggat);
+6-lägga till item = ( case 3 när inloggat); 
+7-köpa item = (market.BuyItem(active_user));
+8-Andra ägare mellan användare(transfer) = (Trade.TransferItem finns ,  men inte andropat i menyn);
 
 Men jag saknar:
 -Trade requests (begäran om att byta/köpa)
