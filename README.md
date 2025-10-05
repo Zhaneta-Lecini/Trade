@@ -15,6 +15,36 @@ All kod är skriven med samma principer som vi har lärt oss i skolan. Till exem
 
 
 
+------Trading Market-----------
+
+Ett konsolprogram i C# där användare kan:
+
+--Skapa konto och logga in
+-- Lägga upp sina saker (items)
+--Se vad andra säljer
+--Skicka trade request
+--Acceptera eller neka trades
+--Data sparas automatiskt i JSON-filer (users.json, items.json)
+
+Jag använde klasser (User, Item, Trade, TradeRequest) och listor för att hantera logiken.
+
+
+I min kod fungerar redan:
+-skapa konto 
+-logga in
+-logga ut
+-lägga till item
+-köpa item
+-visa items
+
+Men jag saknar:
+-Trade requests (begäran om att byta/köpa)
+-Automatisk spara/ladda (autosave + autoload)
+
+
+
+
+
 
 
 
