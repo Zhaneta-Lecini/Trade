@@ -40,17 +40,17 @@ I min kod fungerar redan:
 8-Andra ägare mellan användare(transfer) = (Trade.TransferItem finns ,  men inte andropat i menyn);
 
 Men jag saknar:
--Trade requests (begäran om att byta/köpa)
--Automatisk spara/ladda (autosave + autoload)
+9-Trade requests (begäran om att byta/köpa)
+10-Automatisk spara/ladda (autosave + autoload)
 
+Trade requests:
+Just nu köper användaren direkt ett item. För att lägga till requests kan vi skapa en lista med TradeRequest. När någon vill köpa ett item, skapas ett request istället. Ägaren kan sedan acceptera eller neka.
 
+Persistent storage:
+Vi kan använda JSON för att spara items och users till filer. När programmet startar, läses filerna och allt är kvar precis som innan programmet stängdes.
 
-
-
-
-
-
-
+Flytta item via mail:
+Den logiken finns redan i TransferItem, men vi behöver lägga till ett menyval i program.cs så användare kan använda den.
 
 
 Projektstruktur
